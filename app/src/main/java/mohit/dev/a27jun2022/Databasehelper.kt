@@ -2,8 +2,11 @@ package mohit.dev.a27jun2022
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
+import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import androidx.annotation.Nullable
 
 class Databasehelper(var context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -26,11 +29,11 @@ class Databasehelper(var context: Context) :
         val CREATE_TABLE =
             (
                     "CREATE TABLE " + TABLE_NAME + " "
-                            + "(" + KEY_ID + "INTEGER PRIMARY KEY AUTOINCREMENT ,"
-                            + KEY_EMAIL + "TEXT, " + ""
-                            + KEY_EMAIL + "TEXT,"
-                            + KEY_PASSWORD + "TEXT,"
-                            + KEY_MOBILE + "TEXT)"
+                            + " ( " + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
+                            + KEY_USENAME + " TEXT, " + ""
+                            + KEY_EMAIL + " TEXT,"
+                            + KEY_PASSWORD + " TEXT,"
+                            + KEY_MOBILE + " TEXT)"
                     )
 
         db?.execSQL(CREATE_TABLE)
@@ -41,7 +44,7 @@ class Databasehelper(var context: Context) :
     }
 
 
-    fun InsertData(userModel: UserModel): Long {
+    fun insertData(userModel: UserModel): Long {
         var db = this.writableDatabase
         var cv = ContentValues()
 
@@ -54,5 +57,26 @@ class Databasehelper(var context: Context) :
         var inserData = db.insert(TABLE_NAME, null, cv)
         return inserData
 
+    }
+
+    fun getAllData():MutableList<UserModel>{
+
+        var userlist:MutableList<UserModel> =ArrayList()
+        var sel_que="select *from $TABLE_NAME"
+
+
+        var cursor:Cursor?
+        var db=this.readableDatabase
+
+        try {
+            cursor=db.rawQuery(sel_que,null)
+        }
+        catch (Exception:SQLException){
+            db.execSQL(sel_que)
+            return ArrayList()
+
+        }
+
+        return userlist
     }
 }

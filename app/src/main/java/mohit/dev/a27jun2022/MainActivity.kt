@@ -2,9 +2,11 @@ package mohit.dev.a27jun2022
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +24,24 @@ class MainActivity : AppCompatActivity() {
         var getPassword=tv_password.toString()
         var getContact=tv_contact
 
-        
+     //   var id:Int
+        var dbhelper=Databasehelper(this)
+
+        btnsave.setOnClickListener {
+            var id=dbhelper.insertData(UserModel(it.id,tv_name.text.toString(),tv_Email.text.toString(),
+                tv_password.text.toString(),tv_contact.text.toString()))
+
+            if (id>0){
+                Log.d("mydata","id-"+id)
+                Toast.makeText(this, "saved at $id", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
     }
+
+
 }

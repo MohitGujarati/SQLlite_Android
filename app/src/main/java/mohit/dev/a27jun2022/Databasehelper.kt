@@ -6,7 +6,6 @@ import android.database.Cursor
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import androidx.annotation.Nullable
 
 class Databasehelper(var context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -18,7 +17,7 @@ class Databasehelper(var context: Context) :
 
         private const val TABLE_NAME = "student"
         private const val KEY_ID = "id"
-        private const val KEY_USENAME = "username"
+        private const val KEY_USERNAME = "username"
         private const val KEY_EMAIL = "email"
         private const val KEY_PASSWORD = "password"
         private const val KEY_MOBILE = "mobile"
@@ -30,7 +29,7 @@ class Databasehelper(var context: Context) :
             (
                     "CREATE TABLE " + TABLE_NAME + " "
                             + " ( " + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
-                            + KEY_USENAME + " TEXT, " + ""
+                            + KEY_USERNAME + " TEXT, " + ""
                             + KEY_EMAIL + " TEXT,"
                             + KEY_PASSWORD + " TEXT,"
                             + KEY_MOBILE + " TEXT)"
@@ -48,7 +47,7 @@ class Databasehelper(var context: Context) :
         var db = this.writableDatabase
         var cv = ContentValues()
 
-        cv.put(KEY_USENAME, userModel.username)
+        cv.put(KEY_USERNAME, userModel.username)
         cv.put(KEY_EMAIL, userModel.userEmail)
         cv.put(KEY_MOBILE, userModel.userMobile)
         cv.put(KEY_PASSWORD, userModel.userPassword)

@@ -28,8 +28,7 @@ class MainActivity : AppCompatActivity() {
         var dbhelper=Databasehelper(this)
 
         btnsave.setOnClickListener {
-            var id=dbhelper.insertData(UserModel(it.id, getname,getEmail,
-                getPassword,getContact))
+            var id=dbhelper.insertData(UserModel(it.id, getname,getEmail,getPassword,getContact))
 
             if (id>0){
                 Log.d("mydata","id-"+id)

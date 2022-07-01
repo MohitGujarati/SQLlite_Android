@@ -1,5 +1,6 @@
 package mohit.dev.a27jun2022
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -58,22 +59,48 @@ class Databasehelper(var context: Context) :
 
     }
 
-    fun getAllData():MutableList<UserModel>{
+    @SuppressLint("Range")
+    fun getAllData(): MutableList<UserModel> {
 
-        var userlist:MutableList<UserModel> =ArrayList()
-        var sel_que="select * from $TABLE_NAME"
+        var userlist: MutableList<UserModel> = ArrayList()
+        var sel_que = "select * from $TABLE_NAME"
 
 
-        var cursor:Cursor?
-        var db=this.readableDatabase
+        var cursor: Cursor?
+        var db = this.readableDatabase
 
         try {
-            cursor=db.rawQuery(sel_que,null)
-        }
-        catch (Exception:SQLException){
+            cursor = db.rawQuery(sel_que, null)
+        } catch (Exception: SQLException) {
             db.execSQL(sel_que)
             return ArrayList()
 
+        }
+
+        var userid: Int
+        var username: String
+        var userEmail: String
+        var userPassword: String
+        var userMobile: String
+
+        if (cursor.count > 0)
+
+        {
+            if (cursor.moveToFirst()) {
+
+                do {
+                    userid = cursor.getInt(cursor.getColumnIndex(KEY_ID))
+                    username = cursor.getString(cursor.getColumnIndex(KEY_USERNAME))
+                    userEmail = cursor.getString(cursor.getColumnIndex(KEY_EMAIL))
+                    userPassword = cursor.getString(cursor.getColumnIndex(KEY_PASSWORD))
+                    userMobile = cursor.getString(cursor.getColumnIndex(KEY_MOBILE))
+
+                    var userdata = UserModel(userid, username, userEmail, userPassword, userMobile)
+                    userlist.add(userdata)
+
+
+                } while (cursor.moveToNext())
+            }
         }
 
         return userlist

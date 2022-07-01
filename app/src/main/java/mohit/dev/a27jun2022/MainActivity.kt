@@ -1,5 +1,6 @@
 package mohit.dev.a27jun2022
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,20 +20,18 @@ class MainActivity : AppCompatActivity() {
         var tv_contact=findViewById<EditText>(R.id.tv_UserContact)
         var btnsave=findViewById<Button>(R.id.btnsave)
 
-        var getname=tv_name.toString()
-        var getEmail=tv_Email.toString()
-        var getPassword=tv_password.toString()
-        var getContact=tv_contact.toString()
 
      //   var id:Int
         var dbhelper=Databasehelper(this)
 
         btnsave.setOnClickListener {
-            var id=dbhelper.insertData(UserModel(it.id, getname,getEmail,getPassword,getContact))
+            var id=dbhelper.insertData(UserModel(it.id, tv_name.text.toString(),tv_Email.text.toString(),tv_password.text.toString(),tv_contact.text.toString()))
 
             if (id>0){
-                Log.d("mydata","id-"+id)
+              //  Log.d("mydata","id-"+id)
+                var intent=Intent(this,ViewUser::class.java)
                 Toast.makeText(this, "saved at $id", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
             }
             else{
                 Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show()

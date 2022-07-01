@@ -63,7 +63,7 @@ class Databasehelper(var context: Context) :
     fun getAllData(): MutableList<UserModel> {
 
         var userlist: MutableList<UserModel> = ArrayList()
-        var sel_que = "select * from $TABLE_NAME"
+        var sel_que = "select * from $TABLE_NAME ORDER BY $KEY_ID DESC "
 
 
         var cursor: Cursor?

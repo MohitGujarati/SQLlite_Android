@@ -22,14 +22,14 @@ class MainActivity : AppCompatActivity() {
         var getname=tv_name.toString()
         var getEmail=tv_Email.toString()
         var getPassword=tv_password.toString()
-        var getContact=tv_contact
+        var getContact=tv_contact.toString()
 
      //   var id:Int
         var dbhelper=Databasehelper(this)
 
         btnsave.setOnClickListener {
-            var id=dbhelper.insertData(UserModel(it.id,tv_name.text.toString(),tv_Email.text.toString(),
-                tv_password.text.toString(),tv_contact.text.toString()))
+            var id=dbhelper.insertData(UserModel(it.id, getname,getEmail,
+                getPassword,getContact))
 
             if (id>0){
                 Log.d("mydata","id-"+id)

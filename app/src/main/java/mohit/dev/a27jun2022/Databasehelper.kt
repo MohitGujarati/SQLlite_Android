@@ -65,7 +65,6 @@ class Databasehelper(var context: Context) :
         var userlist: MutableList<UserModel> = ArrayList()
         var sel_que = "select * from $TABLE_NAME ORDER BY $KEY_ID DESC "
 
-
         var cursor: Cursor?
         var db = this.readableDatabase
 
@@ -83,9 +82,7 @@ class Databasehelper(var context: Context) :
         var userPassword: String
         var userMobile: String
 
-        if (cursor.count > 0)
-
-        {
+        if (cursor.count > 0) {
             if (cursor.moveToFirst()) {
 
                 do {
@@ -105,4 +102,22 @@ class Databasehelper(var context: Context) :
 
         return userlist
     }
+
+    fun updatedata(userModel: UserModel):Int{
+
+        var db = this.writableDatabase
+        var cv_update = ContentValues()
+
+        cv_update.put(KEY_USERNAME, userModel.username)
+        cv_update.put(KEY_EMAIL, userModel.userEmail)
+        cv_update.put(KEY_MOBILE, userModel.userMobile)
+        cv_update.put(KEY_PASSWORD, userModel.userPassword)
+
+        var id=db.update(TABLE_NAME,cv_update,KEY_ID+"="+userModel.userid,null)
+        db.close()
+
+        return id
+    }
+
+
 }

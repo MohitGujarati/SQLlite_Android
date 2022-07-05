@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             if (id>0){
               //  Log.d("mydata","id-"+id)
                 var intent=Intent(this,ViewUser::class.java)
-                Toast.makeText(this, "saved at $id", Toast.LENGTH_SHORT).show()
+             //   Toast.makeText(this, "saved at $id", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
             }
             else{

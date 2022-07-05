@@ -2,10 +2,7 @@ package mohit.dev.a27jun2022
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -19,8 +16,8 @@ class ViewUser : AppCompatActivity() {
         var btn_add = findViewById<FloatingActionButton>(R.id.btn_add)
 
 
-        rec_data.layoutManager=GridLayoutManager(this,2)
-        //rec_data.layoutManager =LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        // rec_data.layoutManager=GridLayoutManager(this,2)
+        rec_data.layoutManager = LinearLayoutManager(this)
 
         var db_helper = Databasehelper(this)
 
@@ -28,13 +25,12 @@ class ViewUser : AppCompatActivity() {
         userList = db_helper.getAllData()
 
 
-
-        var connect_Adapter =MyAdapter(this, userList)
+        var connect_Adapter = MyAdapter(this, userList)
         rec_data.adapter = connect_Adapter
 
 
         btn_add.setOnClickListener {
-            var intent= Intent(this,MainActivity::class.java)
+            var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 

@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
         <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
         <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/activity_view_user.xml" value="0.26944444444444443" />
         <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/layout_userrowdata.xml" value="0.27447916666666666" />
+        <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/loginpage.xml" value="0.27447916666666666" />
+        <entry key="..\:/All android 2022-2023/27jun2022/app/src/main/res/layout/mydialog.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

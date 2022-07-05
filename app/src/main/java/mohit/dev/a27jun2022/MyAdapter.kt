@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(var context: Context, var userlist: MutableList<UserModel>) :
@@ -25,8 +24,8 @@ class MyAdapter(var context: Context, var userlist: MutableList<UserModel>) :
 
     override fun onBindViewHolder(holder: Myclass, position: Int) {
         var mymodel = userlist[position]
-        Toast.makeText(context, mymodel.username, Toast.LENGTH_SHORT).show()
-        holder.userName.text = mymodel.username
+        Toast.makeText(context, mymodel.userName, Toast.LENGTH_SHORT).show()
+        holder.userName.text = mymodel.userName
         holder.userEmail.text = mymodel.userEmail
         holder.userMobile.text = mymodel.userMobile
 
@@ -42,7 +41,7 @@ class MyAdapter(var context: Context, var userlist: MutableList<UserModel>) :
 
             var btn_update=d.findViewById<Button>(R.id.btn_update)
 
-            ed_username.setText(mymodel.username)
+            ed_username.setText(mymodel.userName)
             ed_email.setText(mymodel.userEmail)
             ed_password.setText(mymodel.userPassword)
             ed_contact.setText(mymodel.userMobile)
@@ -50,21 +49,11 @@ class MyAdapter(var context: Context, var userlist: MutableList<UserModel>) :
 
             btn_update.setOnClickListener {
 
+                var i=Intent(context,ViewUser::class.java)
                 var dbhelper=Databasehelper(context)
 
-
                var id_update= dbhelper.updatedata(UserModel(mymodel.userid,ed_username.text.toString(),ed_email.text.toString(),ed_password.text.toString(),ed_contact.text.toString()))
-
-
-                if (id_update>0){
-                    //  Log.d("mydata","id-"+id)
-                    var i=Intent(context,ViewUser::class.java)
-                    //   Toast.makeText(this, "saved at $id", Toast.LENGTH_SHORT).show()
-                    context.startActivity(i)
-                }
-                else{
-                    Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show()
-                }
+                context.startActivity(i)
 
             }
 
@@ -72,6 +61,11 @@ class MyAdapter(var context: Context, var userlist: MutableList<UserModel>) :
         }
 
         holder.btn_delete.setOnClickListener {
+            var i=Intent(context,ViewUser::class.java)
+            var dbhelper=Databasehelper(context)
+            Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show()
+            var id_update= dbhelper.delete(UserModel(mymodel.userid,"","","",""))
+            context.startActivity(i)
 
         }
     }

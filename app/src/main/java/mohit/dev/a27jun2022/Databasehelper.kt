@@ -48,7 +48,7 @@ class Databasehelper(var context: Context) :
         var db = this.writableDatabase
         var cv = ContentValues()
 
-        cv.put(KEY_USERNAME, userModel.username)
+        cv.put(KEY_USERNAME, userModel.userName)
         cv.put(KEY_EMAIL, userModel.userEmail)
         cv.put(KEY_MOBILE, userModel.userMobile)
         cv.put(KEY_PASSWORD, userModel.userPassword)
@@ -108,7 +108,7 @@ class Databasehelper(var context: Context) :
         var db = this.writableDatabase
         var cv_update = ContentValues()
 
-        cv_update.put(KEY_USERNAME, userModel.username)
+        cv_update.put(KEY_USERNAME, userModel.userName)
         cv_update.put(KEY_EMAIL, userModel.userEmail)
         cv_update.put(KEY_MOBILE, userModel.userMobile)
         cv_update.put(KEY_PASSWORD, userModel.userPassword)
@@ -117,6 +117,16 @@ class Databasehelper(var context: Context) :
         db.close()
 
         return id
+    }
+
+    fun delete(userModel: UserModel):Int{
+
+        var db =this.readableDatabase
+        var id_del=db.delete(TABLE_NAME,KEY_ID+"="+userModel.userid,null)
+        db.close()
+
+        return id_del
+
     }
 
 

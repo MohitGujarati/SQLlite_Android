@@ -63,8 +63,8 @@ class MyAdapter(var context: Context, var userlist: MutableList<UserModel>) :
         holder.btn_delete.setOnClickListener {
             var i=Intent(context,ViewUser::class.java)
             var dbhelper=Databasehelper(context)
-            Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show()
-            var id_update= dbhelper.delete(UserModel(mymodel.userid,"","","",""))
+            Toast.makeText(context, "deleted", Toast.LENGTH_SHORT).show()
+            var id_delete= dbhelper.delete(UserModel(mymodel.userid,"","","",""))
             context.startActivity(i)
 
         }

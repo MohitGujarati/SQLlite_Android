@@ -6,6 +6,7 @@
     android:layout_margin="10dp"
     android:orientation="vertical"
     tools:context=".Register"
+
     >
 
 
@@ -14,6 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background"
+        android:padding="10dp"
 
 
         />
@@ -24,6 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Email"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background"
+        android:padding="10dp"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -31,6 +38,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Pass"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background"
+        android:padding="10dp"
         android:inputType="textWebPassword"
 
         />
@@ -40,6 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Contact"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background"
+        android:padding="10dp"
+
         android:inputType="number" />
 
     <Button

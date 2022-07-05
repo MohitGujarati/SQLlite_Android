@@ -12,34 +12,24 @@
         android:id="@+id/tv_userName_Log"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
-
+        android:background="@drawable/background"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Login Email/id"
 
         />
 
-
-    <EditText
-        android:id="@+id/tv_UserEmail_Log"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="User Email"
-        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/tv_UserPass_Log"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="User Pass"
+        android:hint="Password"
         android:inputType="textWebPassword"
+        android:background="@drawable/background"
+        android:padding="10dp"
 
         />
-
-    <EditText
-        android:id="@+id/tv_UserContact_Log"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="User Contact"
-        android:inputType="number" />
 
     <Button
         android:id="@+id/btnsave_Reg"

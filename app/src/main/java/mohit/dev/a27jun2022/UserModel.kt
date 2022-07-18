@@ -8,4 +8,5 @@ class UserModel
     var userEmail: String,
     var userPassword: String,
     var userMobile: String,
+    var userPriority:Int
 ) {}

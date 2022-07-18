@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,16 +7,17 @@
     tools:context=".ViewUser">
 
 
+
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -26,25 +26,64 @@
                 android:text="User Data"
                 android:textSize="20dp" />
 
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="25dp">
+
+                <Button
+                    android:id="@+id/btnlowtohigh"
+
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#E53935"
+                    android:text="low to high"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/hightolow"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:layout_toRightOf="@+id/btnlowtohigh"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FB8C00"
+                    android:text=" high to low"
+
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/hightolow"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+
+            </RelativeLayout>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rev_data"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp" />
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add"
-        android:layout_width="222dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        android:layout_marginBottom="70dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/ic_baseline_add_24"
 
-        />
 
-</FrameLayout>
+</LinearLayout>

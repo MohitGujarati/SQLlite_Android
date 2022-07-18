@@ -24,7 +24,6 @@
             android:textSize="20dp" />
 
 
-
         <TextView
             android:textStyle="bold"
             android:id="@+id/layout_userEmail"
@@ -39,6 +38,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="user Mobile"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_UserPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="user Priority"
             android:textStyle="bold"
             android:textSize="20dp" />
 
@@ -73,9 +80,14 @@
                 android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:text="delete" />
+
+
         </LinearLayout>
 
     </LinearLayout>
+
+
+
 
 
 </androidx.cardview.widget.CardView>
